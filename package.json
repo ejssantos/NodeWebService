@@ -1,0 +1,22 @@
+{
+  "name": "nodewebserver",
+  "version": "1.0.0",
+  "description": "Webservice RESTful com Node.js, Restify e MySQL",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon scr/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fábio Vedovelli",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "restify": "^8.5.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "eslint": "^7.4.0",
+    "restify-cors-middleware": "^1.1.1"
+  }
+}
