@@ -1,10 +1,5 @@
 const db = require('../services/mysql');
 
-// db.produtos().all();
-// db.produtos().save(name);
-// db.produtos().update(id, name);
-// db.produtos().del(id);
-
 const routes = (server) => {
 
     //  Usando Async e Await
