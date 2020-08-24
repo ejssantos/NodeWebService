@@ -19,7 +19,6 @@ test('Teste de listagem de produtos', async t => {
     await create(1, 'Headset')
     const result = await list();
     t.is(result.produtos.length > 0, true);
-    //console.log(result.produtos.length > 0);
 });
 
 test('Teste de inclusão de produto', async t => {
@@ -37,7 +36,6 @@ test('Teste de exclusão de produto', async t => {
     await create(4, 'HD');
     const result = await del(4);
     t.is(result.produto.affectedRows, 1);
-    //console.log(result.produto.affectedRows);
 });
 
 //  Limpando todos os testes

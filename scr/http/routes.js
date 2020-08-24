@@ -3,6 +3,16 @@ const db = require('../services/mysql');
 const routes = (server) => {
 
     //  Usando Async e Await
+    server.post('/autenticacao', async(req, res, next) => {
+        try {
+            const { email, senha } = req.params;
+            res.send(await db.auth().authenticate(email, senha));
+        } catch (error) {
+            res.send(error);
+        }
+        next();
+    });
+
     server.get('/produtos', async(req, res, next) => {
         try {
             res.send(await db.produtos().all());

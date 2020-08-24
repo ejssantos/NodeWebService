@@ -9,12 +9,16 @@ const connection = mysqlServer.createConnection({
 });
 
 const errorHandler = (error, msg, rejectFunction) => {
-    console.error(error);
+    //console.error(error);
     rejectFunction({ error: msg });
 }
 
 const produtosModule = require('./produtos')({ connection, errorHandler });
+const usuariosModule = require('./usuarios')({ connection, errorHandler });
+const authModule = require('./auth')({ connection, errorHandler });
 
 module.exports = {
-    produtos: () => produtosModule
+    produtos: () => produtosModule,
+    usuarios: () => usuariosModule,
+    auth: () => authModule
 }

@@ -1,12 +1,11 @@
+
 const { test, connection, errorHandler } = require('./setup');
 
 const usuariosModule = require('../services/mysql/usuarios')({ connection, errorHandler });
 
 const list = () => usuariosModule.all();
-const select = (email) => usuariosModule.select(email);
 const create = (email, senha) => usuariosModule.save(email, senha);
 const update = (codigo, senha) => usuariosModule.update(codigo, senha);
-//const update = (email, senha) => usuariosModule.update(email, senha);
 const del = (codigo) => usuariosModule.del(codigo);
 
 //  Limpando os testes anteriores...
@@ -21,7 +20,6 @@ test('Teste de listagem de usuarios', async t => {
     await create('ejssantos@hotmail.com', '123')
     const result = await list();
     t.is(result.usuarios.length > 0, true);
-    //console.log(result.produtos.length > 0);
 });
 
 test('Teste de inclusão de usuário', async t => {
@@ -39,7 +37,6 @@ test('Teste de exclusão de usuário', async t => {
     let result = await create('bela@hotmail.com', '999');
     result = await del(result.usuario.codigo);
     t.is(result.usuario.affectedRows, 1);
-    //console.log(result.produto.affectedRows);
 });
 
 //  Limpando todos os testes
